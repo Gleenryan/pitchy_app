@@ -1,16 +1,27 @@
-# pitchy_app
+# 🌱 Pitchy App
+Pitchy is a real-time smart farming companion, empowering you to monitor your plants’ health anywhere, anytime.
+With IoT sensors (Arduino + ESP32), Firebase, and a sleek Flutter mobile app, Pitchy helps you ensure your plants always get the water, humidity, and temperature they need.
 
-A new Flutter project.
+# 🚀 Features
+Live Monitoring: Instantly view soil humidity, water level, and temperature from your phone.
+Detail Pages: Dive deep into each sensor with intuitive charts and plant care tips.
+Real-time Alerts: Visual indicators for plant status: Good, Caution, or Bad (color-coded).
+Seamless Integration: ESP32/Arduino hardware pushes sensor data to Firebase; Flutter app fetches and updates in real-time.
 
-## Getting Started
+# 🛠️ Tech Stack
+Hardware: Arduino Nano ESP32, DHT11, soil moisture & water level sensors
+Backend: Google Firebase Realtime Database
+Mobile App: Flutter 
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# 💡 How It Works
+Arduino/ESP32 collects data from plant sensors.
+Sends data to Firebase every second (customizable).
+Flutter app retrieves and displays live sensor data on your phone.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# 📲 Getting Started
+Flash the Arduino code (see /arduino folder).
+Set up Firebase and add your credentials.
+Run the Flutter app (flutter run) and connect your device.
+
