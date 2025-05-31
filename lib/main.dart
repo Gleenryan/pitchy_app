@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'sensor_data_page.dart'; // <--- import your new page
+
+import 'home_page.dart'; // <--- import HomePage widget if it's in a separate file
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'ESP32 Monitor',
       theme: ThemeData(primarySwatch: Colors.green),
-      home: SensorDataPage(), // <--- show live updating data
+      home: HomePage(), // <--- show live updating data
     );
   }
 }

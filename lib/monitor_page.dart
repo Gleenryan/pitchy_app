@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'soil_humidity_detail_page.dart';
+import 'temperature_detail_page.dart';
+import 'water_level_detail_page.dart';
 
 class MonitorPage extends StatelessWidget {
   final int soilHumidity;
@@ -58,14 +61,7 @@ class MonitorPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Icon(
-                    Icons.bubble_chart_rounded,
-                    color: Colors.white,
-                    size: 32,
-                  ),
-                  Icon(Icons.settings, color: Colors.white, size: 32),
-                ],
+                children: [],
               ),
             ),
             // White area fills the rest
@@ -88,9 +84,13 @@ class MonitorPage extends StatelessWidget {
                         // Back arrow
                         Align(
                           alignment: Alignment.centerLeft,
-                          child: Icon(
-                            Icons.arrow_back_ios_new,
-                            color: Colors.black54,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.arrow_back_ios_new,
+                              color: Colors.black54,
+                            ),
+                            onPressed: () => Navigator.pop(context),
+                            splashRadius: 22,
                           ),
                         ),
                         SizedBox(height: 4),
@@ -148,23 +148,65 @@ class MonitorPage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 18),
-                        // Sensor cards
-                        SensorCard(
-                          title: "Soil Humidity",
-                          value: "$soilHumidity%",
-                          icon: Icons.water_drop_outlined,
+                        // --- All Sensor Cards now navigable ---
+                        InkWell(
+                          borderRadius: BorderRadius.circular(14),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder:
+                                    (context) => SoilHumidityDetailPage(
+                                      soilHumidity: soilHumidity,
+                                    ),
+                              ),
+                            );
+                          },
+                          child: SensorCard(
+                            title: "Soil Humidity",
+                            value: "$soilHumidity%",
+                            icon: Icons.water_drop_outlined,
+                          ),
                         ),
                         SizedBox(height: 10),
-                        SensorCard(
-                          title: "Water Level",
-                          value: "$waterLevel%",
-                          icon: Icons.waves_outlined,
+                        InkWell(
+                          borderRadius: BorderRadius.circular(14),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder:
+                                    (context) => WaterLevelDetailPage(
+                                      waterLevel: waterLevel,
+                                    ),
+                              ),
+                            );
+                          },
+                          child: SensorCard(
+                            title: "Water Level",
+                            value: "$waterLevel%",
+                            icon: Icons.waves_outlined,
+                          ),
                         ),
                         SizedBox(height: 10),
-                        SensorCard(
-                          title: "Temperature",
-                          value: "$temperature C",
-                          icon: Icons.thermostat,
+                        InkWell(
+                          borderRadius: BorderRadius.circular(14),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder:
+                                    (context) => TemperatureDetailPage(
+                                      temperature: temperature,
+                                    ),
+                              ),
+                            );
+                          },
+                          child: SensorCard(
+                            title: "Temperature",
+                            value: "$temperature C",
+                            icon: Icons.thermostat,
+                          ),
                         ),
                         SizedBox(height: 40),
                       ],
